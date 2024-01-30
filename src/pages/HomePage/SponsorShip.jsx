@@ -11,9 +11,9 @@ const SponsorShip = () => {
                 <div className='grid grid-cols-3 lg:grid-cols-5 gap-5 mt-14 mb-28'>
                     <img src={aven} alt="" />
                     <img src={amara} alt="" />
-                    <img src={circle} alt="" />
-                    <img src={kyan} alt="" />
-                    <img src={treva} alt="" />
+                    <img className='mr-3' src={circle} alt="" />
+                    <img className='mt-10 lg:mt-0' src={kyan} alt="" />
+                    <img className='mt-10 lg:mt-0' src={treva} alt="" />
                 </div>
             </div>
         </div>
