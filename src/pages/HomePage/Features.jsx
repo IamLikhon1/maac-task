@@ -3,7 +3,7 @@ import centerPhone from '../../assets/Central phone 2.png'
 const Features = () => {
     return (
         <div>
-            <hr className='border-[#C2D2EB] h-[2px] mt-2 hidden lg:block' />
+            <hr className='border-[#C2D2EB] h-[2px] mt-2 hidden lg:block ' />
             <div className="max-w-7xl mx-auto mt-20">
                 <div className="text-center">
                     <p className="text-xl text-[#0052CC]">Products Features </p>

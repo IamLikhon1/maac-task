@@ -2,7 +2,7 @@ const Banner = () => {
     return (
 
 
-        <div className="max-w-7xl mx-auto flex justify-center mt-10 lg:mt-24">
+        <div className="max-w-7xl mx-auto flex justify-center mt-10 lg:mt-24 ">
 
             <div>
                 <h2 className="text-4xl lg:text-6xl text-[#0B141F] text-center font-semibold">Analytics that transform your <br /> product inside-out</h2>

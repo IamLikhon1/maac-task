@@ -4,7 +4,7 @@ import twitter from '../../assets/013-twitter.png'
 import linkedin from '../../assets/010-linkedin.png'
 const Footer = () => {
     return (
-        <div className="bg-[#00193D] text-white py-12">
+        <div className="bg-[#00193D] text-white py-12 ">
             <div>
                 <div className="max-w-7xl mx-auto text-center">
                     <img src={footerLogo} className='mx-auto mt-10' alt="" />

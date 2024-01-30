@@ -9,14 +9,15 @@ import SponsorShip from "./SponsorShip";
 const HomePage = () => {
     return (
         <div>
-            <Banner/>
-            <ImagesSection/>
-            <Features/>
-            <AboutUsSection/>
-            <Awards/>
-            <FAQSection/>
-            <SponsorShip/>
-            
+
+            <Banner />
+            <ImagesSection />
+            <Features />
+            <AboutUsSection />
+            <Awards />
+            <FAQSection />
+            <SponsorShip />
+
         </div>
     );
 };
