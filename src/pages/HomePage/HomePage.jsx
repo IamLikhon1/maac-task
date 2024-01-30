@@ -1,3 +1,4 @@
+import AboutUsSection from "./AboutUsSection";
 import Awards from "./Awards";
 import Banner from "./Banner";
 import FAQSection from "./FAQSection";
@@ -11,6 +12,7 @@ const HomePage = () => {
             <Banner/>
             <ImagesSection/>
             <Features/>
+            <AboutUsSection/>
             <Awards/>
             <FAQSection/>
             <SponsorShip/>
