@@ -15,13 +15,13 @@ const Navbar = () => {
                         <div className="flex items-center">
 
                             {/* logo */}
-                            <Link to='/'> <img src={Logo} alt="Logo" className='ml-3' /></Link>
+                            <Link to='/'> <img src={Logo} alt="Logo" className='ml-3 ' /></Link>
 
                         </div>
 
                         <div className="hidden md:block ml-96">
                             <div className="space-x-8 ml-96">
-                                <div className='ml-96 space-x-8'>
+                                <div className='ml-64 space-x-8'>
                                     <Link
                                         // onClick={() => setProgress(100)}
                                         to='/login'
