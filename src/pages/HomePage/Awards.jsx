@@ -4,7 +4,7 @@ import clients from '../../assets/people.png'
 import trophy from '../../assets/cup.png'
 const Awards = () => {
     return (
-        <div className='max-w-7xl mx-auto mt-20'>
+        <div className='max-w-7xl mx-auto my-20 lg:my-32'>
             <div className='grid grid-cols-2 lg:grid-cols-4'>
                 {/* monitor */}
                 <div className='text-center'>

@@ -74,7 +74,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <hr className='border-[#C2D2EB] h-[2px] mt-2 hidden lg:block' />
+            <hr className='border-[#C2D2EB] h-[2px] mt-5 hidden lg:block' />
 
             {isOpen && (
                 <div className="md:hidden">

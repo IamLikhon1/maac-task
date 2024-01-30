@@ -1,6 +1,7 @@
 import Awards from "./Awards";
 import Banner from "./Banner";
 import FAQSection from "./FAQSection";
+import Features from "./Features";
 import ImagesSection from "./ImagesSection";
 import SponsorShip from "./SponsorShip";
 
@@ -9,8 +10,9 @@ const HomePage = () => {
         <div>
             <Banner/>
             <ImagesSection/>
-            <FAQSection/>
+            <Features/>
             <Awards/>
+            <FAQSection/>
             <SponsorShip/>
             
         </div>

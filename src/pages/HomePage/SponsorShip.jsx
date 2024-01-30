@@ -5,7 +5,7 @@ import kyan from '../../assets/Kyan.png'
 import treva from '../../assets/Treva.png'
 const SponsorShip = () => {
     return (
-        <div className='max-w-7xl mx-auto mt-32'>
+        <div className='max-w-7xl mx-auto my-20 lg:my-40'>
             <div className='mx-2 lg:mx-0'>
                 <h2 className='text-[#0052CC] text-center text-4xl'>5,000+ high-impact teams rely on Fieldx</h2>
                 <div className='grid grid-cols-3 lg:grid-cols-5 gap-5 mt-14 mb-28'>

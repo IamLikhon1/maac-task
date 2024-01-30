@@ -7,3 +7,20 @@
     font-family: 'Manrope', sans-serif;
     font-family: 'Source Sans 3', sans-serif;
 }
+
+.FaQBGImg {
+    background-image: url('./assets/FAQBG.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+/* .BigCircleBlue {
+    width: 548px;
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 500px;
+    background: #0052CC;
+    position: relative;
+    top: 400px;
+} */
