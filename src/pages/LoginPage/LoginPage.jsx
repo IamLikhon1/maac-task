@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-    const navigate= useNavigate()
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -23,15 +23,15 @@ const LoginPage = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.status =='fail' || data.status =='error'){
+                if (data.status == 'fail' || data.status == 'error') {
                     toast.error(data.message)
                 }
-                else{
-                    toast.success(data.user.name+ ' ' + 'Welcome to the Homepage');
+                else {
+                    toast.success(data.user.name + ' ' + 'Welcome to the Homepage');
                     navigate('/');
+                    reset();
                 }
             })
-        reset();
     }
     return (
         <div className="BackImageOnBanner py-2">

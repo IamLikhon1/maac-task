@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import ShowAreasData from "./ShowAreasData";
+import toast from "react-hot-toast";
 
 const AreaPage = () => {
     const {
@@ -9,17 +11,34 @@ const AreaPage = () => {
     const onSubmit = (data) => {
         const region = data.region;
         const area = data.area;
-       const areaChoose={region, area}
-       console.log(areaChoose);
+        const areaChoose = { region, area }
+        fetch('https://staging-api.erpxbd.com/api/v1/area', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(areaChoose)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.status == 'fail' || data.status == 'error') {
+                    toast.error(data.message)
+                }
+                else {
+                    toast.success('Yes you successfully added the area');
+                    reset();
+                }
+            })
 
-        reset();
+
     }
     return (
         <div>
             <div className="flex justify-between mx-5 mt-16 lg:mt-0 items-center">
                 <h2 className="text-[#0C1D37] text-2xl font-semibold ml-4">Area List</h2>
                 <div>
-                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-[#0B2E4E] px-7 py-3 rounded-2xl text-white">+  Create New</button>
+                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-[#0B2E4E] px-7 py-3 rounded-2xl text-white">+  Create New Area</button>
                 </div>
             </div>
             <dialog id="my_modal_3" className="modal">
@@ -50,6 +69,8 @@ const AreaPage = () => {
                     </form>
                 </div>
             </dialog>
+            {/* show area data */}
+            <ShowAreasData />
         </div>
     );
 };

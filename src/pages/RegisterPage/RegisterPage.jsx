@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
-    const navigate =useNavigate()
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -28,16 +28,15 @@ const RegisterPage = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.status =='fail' || data.status =='error'){
+                if (data.status == 'fail' || data.status == 'error') {
                     toast.error(data.message)
                 }
-                else{
-                    toast.success(data.user.name+ ' ' + 'You have successfully registered')
+                else {
+                    toast.success(data.user.name + ' ' + 'Please Provide Your Correct Email and Password ')
                     navigate('/login ')
+                    reset();
                 }
-                
             })
-        reset();
     }
 
     return (

@@ -12,6 +12,9 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import Dashboard from './Layout/Dashboard';
 import RegionPage from './pages/DashboardPage/RegionPage/RegionPage';
 import AreaPage from './pages/DashboardPage/AreaPage/AreaPage';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// Create a client
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,11 +39,11 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
-        path:'region',
+        path: 'region',
         element: <RegionPage />,
       },
       {
-        path:'area',
+        path: 'area',
         element: <AreaPage />,
       }
     ],
@@ -48,6 +51,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>,
 )
