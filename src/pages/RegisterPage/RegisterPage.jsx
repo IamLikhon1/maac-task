@@ -1,22 +1,42 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
+    const navigate =useNavigate()
     const {
         register,
         handleSubmit,
         reset,
     } = useForm();
     const onSubmit = (data) => {
-        const name =data.name;
+        const name = data.name;
         const email = data.email;
-        const userId=data.userId;
-        const number = data.number;
+        const employeeId = data.employeeId;
+        const phoneNumber = data.phoneNumber;
         const password = data.password;
-        const confirm = data.confirm;
-        const role =data.role;
-        const registerUserInfo={name,email,number,password,confirm,role,userId};
-        console.log(registerUserInfo);
+        const passwordConfirm = data.passwordConfirm;
+        const role = data.role;
+        const registerUserInfo = { name, email, phoneNumber, password, passwordConfirm, role, employeeId };
+        fetch('https://staging-api.erpxbd.com/api/v1/users/signup', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(registerUserInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.status =='fail' || data.status =='error'){
+                    toast.error(data.message)
+                }
+                else{
+                    toast.success(data.user.name+ ' ' + 'You have successfully registered')
+                    navigate('/login ')
+                }
+                
+            })
         reset();
     }
 
@@ -35,26 +55,20 @@ const RegisterPage = () => {
                     {/* email */}
                     <input type="email" name="email" {...register("email", { required: true })} placeholder="Enter Your Email" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
                     {/* id */}
-                    <input type="text" name="userId"{...register("userId", { required: true })} placeholder="Your ID" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
+                    <input type="text" name="employeeId"{...register("employeeId", { required: true })} placeholder="Your ID" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
                     {/* number */}
-                    <input type="text" name="number" {...register("number", { required: true })} placeholder="Enter Your Mobile Number" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
+                    <input type="text" name="phoneNumber" {...register("phoneNumber", { required: true })} placeholder="Enter Your Mobile Number" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
                     {/* password */}
                     <input type="password" name="password"  {...register("password", { required: true })} placeholder="Password" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
 
                     {/* confirm password */}
-                    <input type="password" name="confirm" placeholder="Confirm Password"  {...register("confirm", { required: true })} className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
+                    <input type="password" name="passwordConfirm" placeholder="Confirm Password"  {...register("passwordConfirm", { required: true })} className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
 
                     {/* role */}
 
                     <select className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" {...register("role")}>
                         <option value="Select Your Role">Select Your Role</option>
-                        <option value="Hiring Manager">Hiring Manager</option>
-                        <option value="Software Engineer">Software Engineer</option>
                         <option value="HUB">HUB</option>
-                        <option value="Web Developer">Web Developer</option>
-                        <option value="UI/UX">UI/UX</option>
-                        <option value="DevOps">DevOps</option>
-                        <option value="SQA Engineer">SQA Engineer</option>
                     </select>
                     <br />
                     <p className="lg:ml-20 mt-8 text-lg"><input type="checkbox" /> I read and agree to the <span className="text-[#0052CC] font-semibold hover:underline cursor-pointer">Terms & Conditions</span></p>

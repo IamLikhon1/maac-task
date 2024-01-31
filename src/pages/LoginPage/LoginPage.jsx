@@ -1,19 +1,36 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+    const navigate= useNavigate()
     const {
         register,
         handleSubmit,
         reset,
     } = useForm();
     const onSubmit = (data) => {
-        const email = data.email;
+        const employeeId = data.employeeId;
         const password = data.password;
-        const loginUserInfo = { email, password };
-        console.log(loginUserInfo);
-        toast.success("yess")
+        const loginUserInfo = { employeeId, password };
+        fetch('https://staging-api.erpxbd.com/api/v1/users/login', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(loginUserInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.status =='fail' || data.status =='error'){
+                    toast.error(data.message)
+                }
+                else{
+                    toast.success(data.user.name+ ' ' + 'Welcome to the Homepage');
+                    navigate('/');
+                }
+            })
         reset();
     }
     return (
@@ -26,7 +43,7 @@ const LoginPage = () => {
                 {/* form */}
                 <form onSubmit={handleSubmit(onSubmit)} className="py-10 mx-2 lg:mx-0 px-2">
                     {/* email */}
-                    <input type="email" name="email" {...register("email", { required: true })} placeholder="Enter Your Email" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
+                    <input type="email" name="employeeId" {...register("employeeId", { required: true })} placeholder="Enter Your Email" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />
 
                     {/* password */}
                     <input type="password" name="password"  {...register("password", { required: true })} placeholder="Password" className="mt-8 w-full lg:w-[80%] py-4 border-b-2 border-[#E1E1E1] focus:outline-none text-xl text-[#898989] lg:ml-20" required />

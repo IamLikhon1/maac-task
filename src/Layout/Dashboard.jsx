@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <ul className="p-4 w-64 min-h-full bg-white">
                     {/* Sidebar content here */}
                     {/* logo */}
-                    <img src={logo} className="mx-auto" alt="" />
+                    <Link to='/'><img src={logo} className="mx-auto" alt="" /></Link>
                     <p className="mt-5 px-3 py-2 rounded-md  text-sm text-[#6A7187] focus:text-[#6A7187] uppercase font-semibold">Menu</p>
                     <div className="ml-10">
 
