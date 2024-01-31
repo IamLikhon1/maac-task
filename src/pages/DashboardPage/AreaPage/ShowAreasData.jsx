@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const ShowAreasData = () => {
     const { isLoading, data } = useQuery({
-        queryKey: ['regionData'],
+        queryKey: ['areaData'],
         queryFn: () =>
             fetch('https://staging-api.erpxbd.com/api/v1/area/All/5/1?name=BARGUNA').then((res) =>
                 res.json()
@@ -53,10 +53,10 @@ const ShowAreasData = () => {
                                            {index + 1}
                                         </td>
                                         <td>
-                                           {item.name}
+                                           {item.region}
                                         </td>
                                         <td>
-                                           {item.area}
+                                           {item.name}
                                         </td>
                                     </tr>
                                 ))

@@ -9,9 +9,9 @@ const AreaPage = () => {
         reset,
     } = useForm();
     const onSubmit = (data) => {
+        const name = data.name;
         const region = data.region;
-        const area = data.area;
-        const areaChoose = { region, area }
+        const areaChoose = { region, name }
         fetch('https://staging-api.erpxbd.com/api/v1/area', {
             method: 'POST',
             headers: {
@@ -61,7 +61,7 @@ const AreaPage = () => {
                             <option value="Barishal">Barishal</option>
                         </select>
 
-                        <input {...register("area", { required: true })} type="text" name="area" className="py-3 rounded-xl w-full border-2 focus:outline-none pl-3 mt-5" placeholder="Type Region" />
+                        <input {...register("name", { required: true })} type="text" name="name" className="py-3 rounded-xl w-full border-2 focus:outline-none pl-3 mt-5" placeholder="Type Region" />
 
                         <div className="flex justify-end">
                             <input type="submit" value="Add Area" className="px-7 py-3 bg-[#0B2E4E] text-white rounded-xl mt-5 cursor-pointer" />

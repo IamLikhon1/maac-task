@@ -21,20 +21,28 @@ const Navbar = () => {
 
                         <div className="hidden md:block ml-96">
                             <div className="space-x-8 ml-96">
-                                <div className='ml-64 space-x-8'>
+                                <div className='space-x-8'>
                                     <Link
                                         // onClick={() => setProgress(100)}
-                                        to='/login'
-                                        className="bg-[#0052CC] px-8 py-3 rounded-md text-white font-semibold"
+                                        to='/dashboard/region'
+                                        className="bg-[#0052CC]  rounded-md text-white font-semibold px-10 py-3"
                                     >
-                                        Login
+                                        Go To Dashboard
                                     </Link>
+
                                     <Link
                                         // onClick={() => setProgress(100)}
                                         to='/register'
                                         className="border-2 border-[#0052CC] text-[#0052CC] px-10 py-3 rounded-md  font-semibold hover:bg-[#0052CC] duration-500 hover:text-white"
                                     >
                                         Registration
+                                    </Link>
+                                    <Link
+                                        // onClick={() => setProgress(100)}
+                                        to='/login'
+                                        className="bg-[#0052CC] px-8 py-3 rounded-md text-white font-semibold"
+                                    >
+                                        Login
                                     </Link>
                                 </div>
 
@@ -86,7 +94,7 @@ const Navbar = () => {
                             Login
                         </Link>
                         <Link
-                           to='/register'
+                            to='/register'
                             className="text-black focus:text-white block px-3 py-2 rounded-md text-base font-medium"
                         >
                             Registration
